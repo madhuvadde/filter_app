@@ -5,14 +5,17 @@ var fragment = document.createDocumentFragment();
 var table = document.createElement('table');
 table.className = "table table-bordered";
 var row = document.createElement('tr');
-row.bgColor ="red"
-;var arr = ["Date","City","State","Country","Shape","Duration","Comments"];
+row.bgColor ="red";
+var arr = ["Date","City","State","Country","Shape","Duration","Comments"];
+
+
 for(var i=0;i<arr.length;i++){
   var column = document.createElement('td');
   column.textContent = arr[i];
   row.appendChild(column);
 }
 table.appendChild(row);
+
 var table_data = data;
 function bodyAttachment(){
   cusDiv.appendChild(table);
@@ -65,6 +68,7 @@ function filterData(){
       msg.innerHTML = "Please enter one of the fields!!!!";
    }else{
    table.textContent = "";
+    table.appendChild(row);
    for(var i = 0;i<table_data.length;i++){
      if(date.value == table_data[i].datetime || city.value == table_data[i].city || state.value 
        == table_data[i].state || country.value == table_data[i].country||

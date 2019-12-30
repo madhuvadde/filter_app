@@ -1,4 +1,3 @@
-//var start_time = performance.now();
 var cusDiv = document.createElement('div');
 cusDiv.className = "container";
 var fragment = document.createDocumentFragment();
@@ -7,15 +6,12 @@ table.className = "table table-bordered";
 var row = document.createElement('tr');
 row.bgColor ="red";
 var arr = ["Date","City","State","Country","Shape","Duration","Comments"];
-
-
 for(var i=0;i<arr.length;i++){
   var column = document.createElement('td');
   column.textContent = arr[i];
   row.appendChild(column);
 }
 table.appendChild(row);
-
 var table_data = data;
 function bodyAttachment(){
   cusDiv.appendChild(table);
@@ -59,6 +55,9 @@ var shape    = document.getElementById('shape');
 var time     = document.getElementById('time');
 var comments = document.getElementById('comments');
 var msg      = document.getElementById('msg');
+var res     = document.getElementById('res');
+var count = 0;
+
 btn.addEventListener('click',filterData,false);
 function filterData(){
    if(date.value == "" && city.value == "" && state.value 
@@ -67,6 +66,13 @@ function filterData(){
        &&comments.value == ""){
       msg.innerHTML = "Please enter one of the fields!!!!";
    }else{
+ 
+  if(count == 0){
+  count += 1;
+  var retVal = prompt("Enter your name : ", "your name here");
+  res.innerHTML = "Advance Happy New Year 2020 <i>" + retVal + "</i> Buddy! and you can check your result Down!";
+}
+   msg.innerHTML="";
    table.textContent = "";
     table.appendChild(row);
    for(var i = 0;i<table_data.length;i++){
